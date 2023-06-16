@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+ name:  nginx-daemonset
+ labels:
+  app: nginx
+  type: frontend
+spec:
+ template:
+  metadata:
+   labels:
+    app: nginx-pod
+    type: frontend
+   name: nginx-pod
+  spec:
+   containers:
+   - image: nginx:1.25
+     name: nginx-pod
+   restartPolicy: Always
+ selector:
+  matchLabels:
+   type: frontend
