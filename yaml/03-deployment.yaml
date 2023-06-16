@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: nginx-daemonset
+ labels:
+  app: nginx
+  type: frontend
+spec:
+ template:
+  metadata:
+   labels:
+    app: nginx-pod
+    type: frontend
+   name: nginx-pod
+  spec:
+   containers:
+   - image: nginx:1.25
+     name: nginx-pod
+   restartPolicy: Always
+ replicas: 12
+ selector:
+  matchLabels:
+   type: frontend
+ strategy:
+  type: RollingUpdate

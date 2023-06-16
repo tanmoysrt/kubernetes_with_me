@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: nginx-pod
+    type: frontend
+  name: nginx-pod
+spec:
+  containers:
+  - image: nginx:1.24
+    name: nginx-pod
+  restartPolicy: Always
