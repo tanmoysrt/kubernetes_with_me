@@ -1,0 +1,14 @@
+1. Root element -> $ if there is no root element
+2. We can find json with . and in case of list by index [0] or [1]
+3. if there is a list and want to find all numbers > 40
+    $[?(@>40)]
+    > , < , != , == operator available
+4. If we want to get element of more than 1 index, use [start_index, end_index] and to get for a range [start_index:end_index]
+5. Wildcard -> * [To escape a level, useful to explore element of dictionaries in list]
+6. Wilcard can be used in indexing as well like $[*]
+7. while using [1], [2] index, we can also use [-1:0] or [-1:] to get last element
+
+
+---
+For kubectl, 
+kubecl .... -o=jsonpath="{ <here goes the query>  }"
